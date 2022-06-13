@@ -67,26 +67,71 @@ leto_t_list *leto_list_add_node(leto_t_list *parent_node, void *data) {
 	return new_node;
 }
 
+/**
+ * \brief Returns the last item in the list
+ * \param[in] list The list in which the search is performed
+ * \return Pointer to the last item in the list
+ */
+
+leto_t_list *leto_list_get_last(leto_t_list *list) {
+	leto_t_list *node = NULL;
+
+	node = list;
+	while (node->next)
+		node = node->next;
+	
+	return node;
+}
+
+/**
+ * \brief Expands the list by adding a new element to it
+ * \param[in] list An expandable list (not necessarily its beginning)
+ * \param[in] data Pointer to the data stored by the new element
+ * \return Pointer to the created element
+ *
+ * \warning Remember that this function modifies the list, it is not pure
+ */
+
+leto_t_list *leto_list_expand_list(leto_t_list *list, void *data) {
+	leto_t_list *last = NULL;
+
+	last = leto_list_get_last(list);
+
+	return leto_list_add_node(last, data);
+}
+
+/**
+ * \brief Assigns new data to the element
+ * \param[in] node The element to which the data is assigned
+ * \param[in] data Data assigned to the element
+ *
+ * \note Using this function may seem redundant, but it is not. It should be
+ * used wherever possible, because in the future, it is possible to expand this
+ * functionality, overload it (for example, adding logging)
+ */
+
+void leto_list_set_data(leto_t_list *node, void *data) {
+	if (data)
+		node->data = data;
+}
+
 int main(void) {
 	List *lst = NULL, *node = NULL, *next = NULL;
 
 	lst = leto_list_init_node(NULL, NULL);
-	node = leto_list_add_node(lst, NULL);
 
 	for (int i = 0; i < 9; i++) {
-		node = leto_list_add_node(node, NULL);
-		printf("%d\n", i);
+		leto_list_expand_list(lst, NULL);
 	}
 
 	node = lst;
-	for (int i = 0; i < 11; i++) {
+	while (node) {
 		next = node->next;
 
 		leto_list_deinit_node(node);
-		node = next;
 
-		printf("%d\n", i);
+		node = next;
 	}
-	
+
 	return 0;
 }
