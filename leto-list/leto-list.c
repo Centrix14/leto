@@ -77,7 +77,7 @@ leto_t_list *leto_list_get_last(leto_t_list *list) {
 	leto_t_list *node = NULL;
 
 	node = list;
-	while (node->next)
+	while (node && node->next)
 		node = node->next;
 	
 	return node;
@@ -115,23 +115,54 @@ void leto_list_set_data(leto_t_list *node, void *data) {
 		node->data = data;
 }
 
-int main(void) {
-	List *lst = NULL, *node = NULL, *next = NULL;
+void leto_list_iterator(leto_t_list *list, LETO_T_IFUNC_NODE(node_func),
+						LETO_T_IFUNC_DATA(data_func)) {
+	leto_t_list *node = NULL, *next = NULL;
 
-	lst = leto_list_init_node(NULL, NULL);
-
-	for (int i = 0; i < 9; i++) {
-		leto_list_expand_list(lst, NULL);
-	}
-
-	node = lst;
+	node = list;
 	while (node) {
 		next = node->next;
 
-		leto_list_deinit_node(node);
+		if (data_func)
+			(*data_func)(node->data);
+		if (node_func)
+			(*node_func)(node);
 
 		node = next;
 	}
+}
 
-	return 0;
+inline void leto_list_foreach(leto_t_list *list, LETO_T_IFUNC_DATA(data_func)) {
+	leto_list_iterator(list, NULL, data_func);
+}
+
+leto_t_list *leto_list_get_by_index(leto_t_list *list, unsigned int pos) {
+	leto_t_list *node = NULL;
+	unsigned int i = 0;
+
+	node = list;
+	while (node) {
+		if (i == pos)
+			return node;
+		
+		node = node->next;
+		i++;
+	}
+	
+	return NULL;
+}
+
+void leto_list_insert_node(leto_t_list *list, leto_t_list *node, unsigned int pos) {
+	leto_t_list *old_node = NULL;
+
+	old_node = leto_list_get_by_index(list, pos - 1);
+
+	node->next = old_node->next;
+	old_node->next = node;
+}
+
+leto_t_list *leto_list_eject_node(leto_t_list *list, unsigned int pos) {
+	leto_t_list *previous_node = NULL;
+
+	previous_node = leto_list_get_by_index(list, pos - 1);
 }
