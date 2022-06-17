@@ -52,5 +52,6 @@ void leto_list_iterator(leto_t_list *list,
 void leto_list_foreach(leto_t_list *list, LETO_T_IFUNC_DATA(data_func));
 leto_t_list *leto_list_get_by_index(leto_t_list *list, unsigned int pos);
 void leto_list_insert_node(leto_t_list *list, leto_t_list *node, unsigned int pos);
+leto_t_list *leto_list_eject_node(leto_t_list *list, unsigned int pos);
 
 #endif
