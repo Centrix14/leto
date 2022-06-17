@@ -8,7 +8,20 @@
 #ifndef __LETO_LIBRARY_LIST_SYSTEM_LETO_LIST_HEADER_FILE_INCLUDED__
 #define __LETO_LIBRARY_LIST_SYSTEM_LETO_LIST_HEADER_FILE_INCLUDED__
 
+/// Type of element processing function
+/**
+ * A macro is a type of function that processes a list item. Is taken as an argument
+ * by the iterator.
+ */
+
 #define LETO_T_IFUNC_NODE(name) void (*name)(leto_t_list*)
+
+/// Type of element data processing function
+/**
+ * A macro is a type of function that processes the data of a list item. Is
+ * taken as an argument by the iterator.
+ */
+
 #define LETO_T_IFUNC_DATA(name) void (*name)(void*)
 
 /// Structure of a singly linked list element
