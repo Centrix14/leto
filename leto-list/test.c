@@ -9,6 +9,7 @@ void test_iterator();
 void test_foreach();
 void test_get_node_by_index();
 void test_insert_node();
+void test_eject_node();
 
 int main() {
 	tester("init", test_init);
@@ -16,6 +17,7 @@ int main() {
 	tester("foreach", test_foreach);
 	tester("get_node_by_index", test_get_node_by_index);
 	tester("insert_node", test_insert_node);
+	tester("eject_node", test_eject_node);
 	
 	return 0;
 }
@@ -67,6 +69,8 @@ void test_get_node_by_index() {
 
 	node_with_index_1 = leto_list_get_by_index(lst, 1);
 	assert(second_node == node_with_index_1);
+
+	leto_list_iterator(lst, leto_list_deinit_node, NULL);
 }
 
 void test_insert_node() {
@@ -81,4 +85,21 @@ void test_insert_node() {
 
 	node_with_index_4 = leto_list_get_by_index(lst, 4);
 	assert(insertable_node == node_with_index_4);
+
+	leto_list_iterator(lst, leto_list_deinit_node, NULL);
+}
+
+void test_eject_node() {
+	List *lst = NULL, *expectation = NULL, *reality = NULL;
+
+	lst = leto_list_init_node(NULL, "root");
+
+	leto_list_expand_list(lst, "first");
+	expectation = leto_list_expand_list(lst, "eject me");
+	leto_list_expand_list(lst, "second");
+
+	reality = leto_list_eject_node(lst, 2);
+	assert(expectation == reality);
+
+	leto_list_iterator(lst, leto_list_deinit_node, NULL);
 }
