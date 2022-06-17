@@ -63,6 +63,7 @@ leto_t_list *leto_list_add_node(leto_t_list *parent_node, void *data) {
 
 	new_node = leto_list_init_node(NULL, data);
 	parent_node->next = new_node;
+	// add check for NULL
 
 	return new_node;
 }
@@ -156,13 +157,19 @@ void leto_list_insert_node(leto_t_list *list, leto_t_list *node, unsigned int po
 	leto_t_list *old_node = NULL;
 
 	old_node = leto_list_get_by_index(list, pos - 1);
+	// TODO add check for NULL
 
 	node->next = old_node->next;
 	old_node->next = node;
 }
 
 leto_t_list *leto_list_eject_node(leto_t_list *list, unsigned int pos) {
-	leto_t_list *previous_node = NULL;
+	leto_t_list *previous_node = NULL, *ejectable_node = NULL;
 
+	ejectable_node = leto_list_get_by_index(list, pos);
 	previous_node = leto_list_get_by_index(list, pos - 1);
+	// TODO add check for NULL
+	previous_node->next = ejectable_node->next;
+
+	return ejectable_node;
 }
