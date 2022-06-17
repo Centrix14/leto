@@ -116,6 +116,17 @@ void leto_list_set_data(leto_t_list *node, void *data) {
 		node->data = data;
 }
 
+/**
+ * \brief Iterator function
+ * \param[in] list Iterable list
+ * \param[in] node_func Function applied to a list item
+ * \param[in] data_func The function applied to the data of each element
+ * 
+ * \details A general function for sorting through all the elements of the list.
+ * Allows you to apply the specified functions not only to the data, but also to
+ * the list items themselves
+ */
+
 void leto_list_iterator(leto_t_list *list, LETO_T_IFUNC_NODE(node_func),
 						LETO_T_IFUNC_DATA(data_func)) {
 	leto_t_list *node = NULL, *next = NULL;
@@ -133,9 +144,23 @@ void leto_list_iterator(leto_t_list *list, LETO_T_IFUNC_NODE(node_func),
 	}
 }
 
+/**
+ * \brief The wrapper function over the iterator allows you to work only with
+ * the data of each element
+ * \param[in] list Iterable list
+ * \param[in] data_func The function allpied to the data of each element
+ */
+
 inline void leto_list_foreach(leto_t_list *list, LETO_T_IFUNC_DATA(data_func)) {
 	leto_list_iterator(list, NULL, data_func);
 }
+
+/**
+ * \brief Returns an element with the corresponding index
+ * \param[in] list The list of them from which the element is taken
+ * \param[in] pos Index of the required element
+ * \return Element with the corresponding index
+ */
 
 leto_t_list *leto_list_get_by_index(leto_t_list *list, unsigned int pos) {
 	leto_t_list *node = NULL;
@@ -153,6 +178,13 @@ leto_t_list *leto_list_get_by_index(leto_t_list *list, unsigned int pos) {
 	return NULL;
 }
 
+/**
+ * \brief Inserts an item into the list
+ * \param[in] list The list to insert into
+ * \param[in] node Insertable element
+ * \param[in] pos Insert position
+ */
+
 void leto_list_insert_node(leto_t_list *list, leto_t_list *node, unsigned int pos) {
 	leto_t_list *old_node = NULL;
 
@@ -162,6 +194,13 @@ void leto_list_insert_node(leto_t_list *list, leto_t_list *node, unsigned int po
 	node->next = old_node->next;
 	old_node->next = node;
 }
+
+/**
+ * \brief Removes an item from the list
+ * \param[in] list The list from which the element is removed
+ * \param[in] pos Index of the item being withdrawn
+ * \return The withdrawn element
+ */
 
 leto_t_list *leto_list_eject_node(leto_t_list *list, unsigned int pos) {
 	leto_t_list *previous_node = NULL, *ejectable_node = NULL;
