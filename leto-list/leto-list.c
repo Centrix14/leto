@@ -62,8 +62,8 @@ leto_t_list *leto_list_add_node(leto_t_list *parent_node, void *data) {
 	leto_t_list *new_node = NULL;
 
 	new_node = leto_list_init_node(NULL, data);
-	parent_node->next = new_node;
-	// add check for NULL
+	if (parent_node)
+		parent_node->next = new_node;
 
 	return new_node;
 }
@@ -189,7 +189,11 @@ void leto_list_insert_node(leto_t_list *list, leto_t_list *node, unsigned int po
 	leto_t_list *old_node = NULL;
 
 	old_node = leto_list_get_by_index(list, pos - 1);
-	// TODO add check for NULL
+	if (!old_node) {
+		fprintf(stderr, "leto-list: fail to get old node\n");
+
+		return ;
+	}
 
 	node->next = old_node->next;
 	old_node->next = node;
@@ -207,7 +211,12 @@ leto_t_list *leto_list_eject_node(leto_t_list *list, unsigned int pos) {
 
 	ejectable_node = leto_list_get_by_index(list, pos);
 	previous_node = leto_list_get_by_index(list, pos - 1);
-	// TODO add check for NULL
+	if (!ejectable_node || !previous_node) {
+		fprintf(stderr, "leto-list: fail to get ejectable or previous node\n");
+
+		return NULL;
+	}
+
 	previous_node->next = ejectable_node->next;
 
 	return ejectable_node;
