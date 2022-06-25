@@ -6,6 +6,5 @@ var searchData=
   ['test_5finit',['test_init',['../group__leto__list__tests.html#ga500f3e6675ddc2ae311f22f90e919653',1,'test.c']]],
   ['test_5finsert_5fnode',['test_insert_node',['../group__leto__list__tests.html#gaa2f6dcddf8031c5cdc0bce8e5ad7183e',1,'test.c']]],
   ['test_5fiterator',['test_iterator',['../group__leto__list__tests.html#ga97cae71db021dd96f291d33ac538dc31',1,'test.c']]],
-  ['test_5fiterator_5fprint',['test_iterator_print',['../group__leto__list__tests.html#gaeaec5c1fb145068cdb93c107645ba06b',1,'test.c']]],
-  ['tester',['tester',['../group__leto__list__tests.html#gac7e1c98d8e2bf56f9fe6e889d7df4193',1,'test.c']]]
+  ['test_5fiterator_5fprint',['test_iterator_print',['../group__leto__list__tests.html#gaeaec5c1fb145068cdb93c107645ba06b',1,'test.c']]]
 ];
