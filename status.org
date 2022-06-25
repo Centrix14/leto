@@ -1,12 +1,13 @@
 #+title Leto library status file
 #+author Centrix14
 
-* Work plan [0/3]
+* Work plan [0/4]
   - [ ] leto-list library
+  - [ ] leto-test library
   - [ ] leto-ies library
   - [ ] leto-module library
 
 * TODO
   - [ ] Add NULL check in leto-list
   - [ ] Integrate leto-list and leto-ies
-  - [ ] Increase safety 
+
