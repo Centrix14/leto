@@ -9,6 +9,7 @@
 #include <assert.h>
 
 #include "leto-list.h"
+#include "../leto-test/leto-test.h"
 
 /**
  * \defgroup tests Tests
@@ -17,7 +18,6 @@
  * @{
  */
 
-void tester(char *name, void (*func)());
 void test_init();
 void test_iterator();
 void test_foreach();
@@ -27,29 +27,14 @@ void test_eject_node();
 
 /// main test function
 int main() {
-	tester("init", test_init);
-	tester("iterator", test_iterator);
-	tester("foreach", test_foreach);
-	tester("get_node_by_index", test_get_node_by_index);
-	tester("insert_node", test_insert_node);
-	tester("eject_node", test_eject_node);
+	leto_test("init", test_init);
+	leto_test("iterator", test_iterator);
+	leto_test("foreach", test_foreach);
+	leto_test("get_node_by_index", test_get_node_by_index);
+	leto_test("insert_node", test_insert_node);
+	leto_test("eject_node", test_eject_node);
 	
 	return 0;
-}
-
-/**
- * \brief Function to simplify testing
- * \param[in] name Test name
- * \param[in] func Test function
- * 
- * This function does only two things: it calls the test function, and then
- * prints on the screen that the test has passed. Inside the testing function,
- * assert should be used.
- */
-
-void tester(char *name, void (*func)()) {
-	(*func)();
-	printf("*** %s test PASS\n", name);
 }
 
 /**
@@ -64,7 +49,7 @@ void test_init() {
 	List *lst = NULL;
 
 	lst = leto_list_init_node(NULL, NULL);
-	assert(lst == NULL);
+	assert(lst != NULL);
 	leto_list_deinit_node(lst);
 }
 
