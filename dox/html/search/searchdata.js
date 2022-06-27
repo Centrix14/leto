@@ -1,13 +1,13 @@
 var indexSectionsWithContent =
 {
-  0: "_dlmnt",
+  0: "_dhlmnt",
   1: "_",
   2: "lt",
   3: "lmt",
   4: "dn",
   5: "l",
   6: "l",
-  7: "lt"
+  7: "hlt"
 };
 
 var indexSectionNames =

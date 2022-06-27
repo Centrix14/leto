@@ -77,12 +77,14 @@ $(function() {
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="leto-list_8h_source.html">leto-list.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="leto-error_8h_source.html">../leto-error/leto-error.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for leto-list.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="leto-list_8c__incl.png" border="0" usemap="#leto-list_2leto-list_8c" alt=""/></div>
 <map name="leto-list_2leto-list_8c" id="leto-list_2leto-list_8c">
-<area shape="rect" id="node4" href="leto-list_8h.html" title="Header file of the library of singly linked lists leto&#45;list. " alt="" coords="191,80,275,107"/>
+<area shape="rect" id="node4" href="leto-list_8h.html" title="Header file of the library of singly linked lists leto&#45;list. " alt="" coords="147,87,231,114"/>
+<area shape="rect" id="node5" href="leto-error_8h.html" title="The file contains functions and macros for handling errors and warnings. " alt="" coords="255,80,379,121"/>
 </map>
 </div>
 </div>
@@ -167,7 +169,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>New tail of the list (new element) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="leto-list_8c_source.html#l00061">61</a> of file <a class="el" href="leto-list_8c_source.html">leto-list.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leto-list_8c_source.html#l00062">62</a> of file <a class="el" href="leto-list_8c_source.html">leto-list.c</a>.</p>
 
 </div>
 </div>
@@ -196,7 +198,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section warning"><dt>Warning</dt><dd>Remember that passing pointers to memory that has not been allocated to the function is dangerous and may cause the application to crash. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="leto-list_8c_source.html#l00049">49</a> of file <a class="el" href="leto-list_8c_source.html">leto-list.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leto-list_8c_source.html#l00050">50</a> of file <a class="el" href="leto-list_8c_source.html">leto-list.c</a>.</p>
 
 </div>
 </div>
@@ -236,7 +238,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The withdrawn element </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="leto-list_8c_source.html#l00209">209</a> of file <a class="el" href="leto-list_8c_source.html">leto-list.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leto-list_8c_source.html#l00210">210</a> of file <a class="el" href="leto-list_8c_source.html">leto-list.c</a>.</p>
 
 </div>
 </div>
@@ -277,7 +279,7 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the created element</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Remember that this function modifies the list, it is not pure </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="leto-list_8c_source.html#l00096">96</a> of file <a class="el" href="leto-list_8c_source.html">leto-list.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leto-list_8c_source.html#l00097">97</a> of file <a class="el" href="leto-list_8c_source.html">leto-list.c</a>.</p>
 
 </div>
 </div>
@@ -324,7 +326,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="leto-list_8c_source.html#l00154">154</a> of file <a class="el" href="leto-list_8c_source.html">leto-list.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leto-list_8c_source.html#l00155">155</a> of file <a class="el" href="leto-list_8c_source.html">leto-list.c</a>.</p>
 
 </div>
 </div>
@@ -364,7 +366,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Element with the corresponding index </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="leto-list_8c_source.html#l00165">165</a> of file <a class="el" href="leto-list_8c_source.html">leto-list.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leto-list_8c_source.html#l00166">166</a> of file <a class="el" href="leto-list_8c_source.html">leto-list.c</a>.</p>
 
 </div>
 </div>
@@ -393,7 +395,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to the last item in the list </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="leto-list_8c_source.html#l00077">77</a> of file <a class="el" href="leto-list_8c_source.html">leto-list.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leto-list_8c_source.html#l00078">78</a> of file <a class="el" href="leto-list_8c_source.html">leto-list.c</a>.</p>
 
 </div>
 </div>
@@ -434,7 +436,7 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Pointer to new element</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>In case of an error (for example, if memory could not be allocated), the function prints a message to the standard error stream (stderr), after which it returns NULL </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="leto-list_8c_source.html#l00025">25</a> of file <a class="el" href="leto-list_8c_source.html">leto-list.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leto-list_8c_source.html#l00026">26</a> of file <a class="el" href="leto-list_8c_source.html">leto-list.c</a>.</p>
 
 </div>
 </div>
@@ -480,7 +482,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="leto-list_8c_source.html#l00188">188</a> of file <a class="el" href="leto-list_8c_source.html">leto-list.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leto-list_8c_source.html#l00189">189</a> of file <a class="el" href="leto-list_8c_source.html">leto-list.c</a>.</p>
 
 </div>
 </div>
@@ -527,7 +529,7 @@ Functions</h2></td></tr>
 </dl>
 <p>A general function for sorting through all the elements of the list. Allows you to apply the specified functions not only to the data, but also to the list items themselves </p>
 
-<p class="definition">Definition at line <a class="el" href="leto-list_8c_source.html#l00130">130</a> of file <a class="el" href="leto-list_8c_source.html">leto-list.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leto-list_8c_source.html#l00131">131</a> of file <a class="el" href="leto-list_8c_source.html">leto-list.c</a>.</p>
 
 </div>
 </div>
@@ -567,7 +569,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>Using this function may seem redundant, but it is not. It should be used wherever possible, because in the future, it is possible to expand this functionality, overload it (for example, adding logging) </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="leto-list_8c_source.html#l00114">114</a> of file <a class="el" href="leto-list_8c_source.html">leto-list.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leto-list_8c_source.html#l00115">115</a> of file <a class="el" href="leto-list_8c_source.html">leto-list.c</a>.</p>
 
 </div>
 </div>
