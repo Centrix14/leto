@@ -10,6 +10,7 @@
 #include <stdlib.h>
 
 #include "leto-list.h"
+#include "../leto-error/leto-error.h"
 
 /**
  * \brief This function initializes the list item
@@ -26,11 +27,8 @@ leto_t_list *leto_list_init_node(leto_t_list *next, void *data) {
 	leto_t_list *required_node = NULL;
 
 	required_node = (leto_t_list*)malloc(sizeof(leto_t_list));
-	if (!required_node) {
-		fprintf(stderr, "leto-list: fail to allocate memory for node\n");
-
-		return NULL;
-	}
+	if (!required_node)
+		leto_error(LEC_FAIL_MEMORY_ALLOCATION);
 
 	required_node->next = next;
 	required_node->data = data;
@@ -49,6 +47,8 @@ leto_t_list *leto_list_init_node(leto_t_list *next, void *data) {
 void leto_list_deinit_node(leto_t_list *deinitialized_node) {
 	if (deinitialized_node)
 		free(deinitialized_node);
+	else
+		leto_warning(LWC_NULL_AS_OPTIONAL_PARAMETER);
 }
 
 /**
@@ -114,6 +114,8 @@ leto_t_list *leto_list_expand_list(leto_t_list *list, void *data) {
 void leto_list_set_data(leto_t_list *node, void *data) {
 	if (data)
 		node->data = data;
+	else
+		leto_warning(LWC_NULL_AS_OPTIONAL_PARAMETER);
 }
 
 /**
@@ -189,11 +191,8 @@ void leto_list_insert_node(leto_t_list *list, leto_t_list *node, unsigned int po
 	leto_t_list *old_node = NULL;
 
 	old_node = leto_list_get_by_index(list, pos - 1);
-	if (!old_node) {
-		fprintf(stderr, "leto-list: fail to get old node\n");
-
-		return ;
-	}
+	if (!old_node)
+		leto_error(LEC_FAIL_TO_GET_REQUIRED_DATA);
 
 	node->next = old_node->next;
 	old_node->next = node;
@@ -211,11 +210,8 @@ leto_t_list *leto_list_eject_node(leto_t_list *list, unsigned int pos) {
 
 	ejectable_node = leto_list_get_by_index(list, pos);
 	previous_node = leto_list_get_by_index(list, pos - 1);
-	if (!ejectable_node || !previous_node) {
-		fprintf(stderr, "leto-list: fail to get ejectable or previous node\n");
-
-		return NULL;
-	}
+	if (!ejectable_node || !previous_node)
+		leto_error(LEC_FAIL_TO_GET_REQUIRED_DATA);
 
 	previous_node->next = ejectable_node->next;
 
