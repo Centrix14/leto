@@ -25,7 +25,6 @@ void test_get_node_by_index();
 void test_insert_node();
 void test_eject_node();
 
-/// main test function
 int main() {
 	leto_test("init", test_init);
 	leto_test("iterator", test_iterator);
