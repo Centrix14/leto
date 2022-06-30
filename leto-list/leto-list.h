@@ -8,6 +8,11 @@
 #ifndef __LETO_LIBRARY_LIST_SYSTEM_LETO_LIST_HEADER_FILE_INCLUDED__
 #define __LETO_LIBRARY_LIST_SYSTEM_LETO_LIST_HEADER_FILE_INCLUDED__
 
+/**
+ * \defgroup leto_list Library for working with singly linked lists
+ * @{
+ */
+
 /// Type of element processing function
 /**
  * A macro is a type of function that processes a list item. Is taken as an argument
@@ -66,5 +71,7 @@ void leto_list_foreach(leto_t_list *list, LETO_T_IFUNC_DATA(data_func));
 leto_t_list *leto_list_get_by_index(leto_t_list *list, unsigned int pos);
 void leto_list_insert_node(leto_t_list *list, leto_t_list *node, unsigned int pos);
 leto_t_list *leto_list_eject_node(leto_t_list *list, unsigned int pos);
+
+/** @} */
 
 #endif
