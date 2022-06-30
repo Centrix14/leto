@@ -10,8 +10,12 @@
   - [ ] leto-module library
 
 * TODO [2/2]
-  - [X] Add NULL check in leto-list
-  - [X] Integrate leto-list and leto-ies
+  - [ ] Write readme
+  - [ ] Create single header file for library
+  - [ ] Create Make script for library compiling
+  - [ ] create Make script for library testing
+  - [ ] Add leto documentation to my documentation site
+	
 ** TODO Add documentation [4/6]
   - [X] leto-list
   - [X] leto-test
