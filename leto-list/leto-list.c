@@ -13,6 +13,11 @@
 #include "../leto-error/leto-error.h"
 
 /**
+ * \addtogroup leto_list
+ * @{
+ */
+
+/**
  * \brief This function initializes the list item
  * \param[in] next Pointer to next list element
  * \param[in] data Pointer to new element data
@@ -217,3 +222,5 @@ leto_t_list *leto_list_eject_node(leto_t_list *list, unsigned int pos) {
 
 	return ejectable_node;
 }
+
+/** @} */
