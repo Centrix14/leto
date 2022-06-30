@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tests',['Tests',['../group__tests.html',1,'']]]
+  ['simple_20unit_20testing_20system',['Simple unit testing system',['../group__leto__test.html',1,'']]]
 ];

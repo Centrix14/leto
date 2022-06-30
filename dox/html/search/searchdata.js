@@ -1,13 +1,12 @@
 var indexSectionsWithContent =
 {
-  0: "_dhlmnt",
+  0: "_dhlnstw",
   1: "_",
   2: "lt",
-  3: "lmt",
+  3: "lt",
   4: "dn",
   5: "l",
-  6: "l",
-  7: "hlt"
+  6: "hlstw"
 };
 
 var indexSectionNames =
@@ -18,8 +17,7 @@ var indexSectionNames =
   3: "functions",
   4: "variables",
   5: "typedefs",
-  6: "defines",
-  7: "groups"
+  6: "groups"
 };
 
 var indexSectionLabels =
@@ -30,7 +28,6 @@ var indexSectionLabels =
   3: "Functions",
   4: "Variables",
   5: "Typedefs",
-  6: "Macros",
-  7: "Modules"
+  6: "Modules"
 };
 
