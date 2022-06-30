@@ -37,6 +37,28 @@
 
 #define LEC_FAIL_TO_GET_REQUIRED_DATA "Fail to get required data"
 
+/// Error opening a dynamic library
+/**
+ * This error occurs when a non-program fails to open a dynamic library
+ */
+
+#define LEC_FAIL_TO_OPEN_DYNAMIC_LIBRARY "Fail to open dynamic library"
+
+/// Symbol import error
+/**
+ * This error occurs when the program fails to import the required symbol from
+ * the dynamic library
+ */
+
+#define LEC_FAIL_TO_GET_REQUIRED_SYMBOL "Fail to get required symbol"
+
+/// Error closing dynamic library
+/**
+ * This error occurs when the program cannot close the dynamic library correctly
+ */
+
+#define LEC_FAIL_TO_CLOSE_DYNAMIC_LIBRARY "Fail to close dynamic library"
+
 /// NULL Optional Parameter Warning
 /**
  * This warning is triggered when NULL is passed to any function as an
