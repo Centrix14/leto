@@ -10,12 +10,12 @@
   - [ ] leto-interface library
   - [ ] leto-module library
 
-* TODO [4/8]
+* TODO [5/8]
   - [X] Write readme
   - [X] Create single header file for library
   - [X] Create Make script for library compiling
   - [X] create Make script for library testing
-  - [ ] Add leto documentation to my documentation site
+  - [X] Add leto documentation to my documentation site
   - [ ] For leto-utsf: append type system
   - [ ] For leto-utsf: append utsf-container with create and delete functions
   - [ ] For leto-utsf: append utsf with create, delete, append, insert
