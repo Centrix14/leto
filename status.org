@@ -1,20 +1,25 @@
 #+title Leto library status file
 #+author Centrix14
 
-* TODO Work plan [4/6]
+* TODO Work plan [4/7]
   - [X] leto-list library
   - [X] leto-test library
-  - [X] leto-ies library
+  - [X] leto-error library
   - [X] leto-so library
   - [ ] leto-utsf library
+  - [ ] leto-interface library
   - [ ] leto-module library
 
-* TODO [2/2]
-  - [ ] Write readme
-  - [ ] Create single header file for library
-  - [ ] Create Make script for library compiling
-  - [ ] create Make script for library testing
+* TODO [4/8]
+  - [X] Write readme
+  - [X] Create single header file for library
+  - [X] Create Make script for library compiling
+  - [X] create Make script for library testing
   - [ ] Add leto documentation to my documentation site
+  - [ ] For leto-utsf: append type system
+  - [ ] For leto-utsf: append utsf-container with create and delete functions
+  - [ ] For leto-utsf: append utsf with create, delete, append, insert
+    and eject functions
 	
 ** TODO Add documentation [4/6]
   - [X] leto-list
@@ -22,5 +27,6 @@
   - [X] leto-ies
   - [X] leto-so
   - [ ] leto-utsf
+  - [ ] leto-interface
   - [ ] leto-module
 	
