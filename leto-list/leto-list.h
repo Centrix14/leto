@@ -9,7 +9,8 @@
 #define __LETO_LIBRARY_LIST_SYSTEM_LETO_LIST_HEADER_FILE_INCLUDED__
 
 /**
- * \defgroup leto_list Library for working with singly linked lists
+ * \defgroup leto_list [leto-list] Library for working with singly linked \
+ * lists
  * @{
  */
 
