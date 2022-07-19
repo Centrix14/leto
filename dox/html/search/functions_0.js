@@ -16,5 +16,10 @@ var searchData=
   ['leto_5fso_5fget_5fsymbol',['leto_so_get_symbol',['../group__leto__so.html#ga02d7d8f06bf424c5ad3876684dca36ea',1,'leto-so.c']]],
   ['leto_5fso_5fopen_5flibrary',['leto_so_open_library',['../group__leto__so.html#ga99d7b757f93dbf36f2dde673e268c94c',1,'leto-so.c']]],
   ['leto_5ftest',['leto_test',['../group__leto__test.html#ga24c998f387750599085a08bdccd0fd4e',1,'leto-test.h']]],
+  ['leto_5futsf_5fcontainer_5fadd_5fdata',['leto_utsf_container_add_data',['../group__leto__utsf.html#gaa460378806f3c4ac2ba4459cb98356d6',1,'leto-utsf.c']]],
+  ['leto_5futsf_5fcontainer_5fclear',['leto_utsf_container_clear',['../group__leto__utsf.html#ga989da1c3874472e31728b0b9e48dbb11',1,'leto-utsf.c']]],
+  ['leto_5futsf_5fcontainer_5fclone',['leto_utsf_container_clone',['../group__leto__utsf.html#ga126379a4037e1de6bf61fbd3b75ccbeb',1,'leto-utsf.c']]],
+  ['leto_5futsf_5fcontainer_5fdeinit',['leto_utsf_container_deinit',['../group__leto__utsf.html#ga42ac8a76872c1736fdbb9046b6ab0e2d',1,'leto-utsf.c']]],
+  ['leto_5futsf_5fcontainer_5finit',['leto_utsf_container_init',['../group__leto__utsf.html#gaf89f0ede9592c07e822cd25c462306bf',1,'leto-utsf.c']]],
   ['leto_5fwarning_5fhandle',['leto_warning_handle',['../group__leto-error.html#gaedb674856e2f27ed6d46be03cecbac0d',1,'leto-error.h']]]
 ];

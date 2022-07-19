@@ -1,11 +1,11 @@
 var indexSectionsWithContent =
 {
-  0: "_dhlnstw",
-  1: "_",
+  0: "_dhlnstuw",
+  1: "_l",
   2: "lt",
   3: "lt",
-  4: "dn",
-  5: "l",
+  4: "dns",
+  5: "lu",
   6: "hlstw"
 };
 

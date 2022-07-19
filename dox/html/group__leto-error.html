@@ -89,6 +89,9 @@ Macros</h2></td></tr>
 <tr class="memitem:gad2cea900fc6e8b98983ba7354fca1c9d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__leto-error.html#gad2cea900fc6e8b98983ba7354fca1c9d">LEC_FAIL_TO_CLOSE_DYNAMIC_LIBRARY</a>&#160;&#160;&#160;&quot;Fail to close dynamic library&quot;</td></tr>
 <tr class="memdesc:gad2cea900fc6e8b98983ba7354fca1c9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error closing dynamic library.  <a href="#gad2cea900fc6e8b98983ba7354fca1c9d">More...</a><br /></td></tr>
 <tr class="separator:gad2cea900fc6e8b98983ba7354fca1c9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabccdbd302dcc273c368e8b574c728299"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__leto-error.html#gabccdbd302dcc273c368e8b574c728299">LEC_REUSE_ATTEMPT</a></td></tr>
+<tr class="memdesc:gabccdbd302dcc273c368e8b574c728299"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container reuse error.  <a href="#gabccdbd302dcc273c368e8b574c728299">More...</a><br /></td></tr>
+<tr class="separator:gabccdbd302dcc273c368e8b574c728299"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga0e4a74d1e174a305ed3a356f9e9d4b1a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__leto-error.html#ga0e4a74d1e174a305ed3a356f9e9d4b1a">LWC_NULL_AS_OPTIONAL_PARAMETER</a>&#160;&#160;&#160;&quot;NULL passed as an optional parameter&quot;</td></tr>
 <tr class="memdesc:ga0e4a74d1e174a305ed3a356f9e9d4b1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">NULL Optional Parameter Warning.  <a href="#ga0e4a74d1e174a305ed3a356f9e9d4b1a">More...</a><br /></td></tr>
 <tr class="separator:ga0e4a74d1e174a305ed3a356f9e9d4b1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -224,6 +227,25 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="gabccdbd302dcc273c368e8b574c728299"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabccdbd302dcc273c368e8b574c728299">&#9670;&nbsp;</a></span>LEC_REUSE_ATTEMPT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LEC_REUSE_ATTEMPT</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><span class="stringliteral">&quot;An attempt to reuse the container, add data&quot;</span> \</div><div class="line">    <span class="stringliteral">&quot;to it, although it already contains something, was stopped&quot;</span></div></div><!-- fragment -->
+<p>Container reuse error. </p>
+<p>This error occurs when trying to reuse the container, i.e. add data even though it already exists </p>
+
+<p class="definition">Definition at line <a class="el" href="leto-error_8h_source.html#l00068">68</a> of file <a class="el" href="leto-error_8h_source.html">leto-error.h</a>.</p>
+
+</div>
+</div>
 <a id="ga50707982e003ce6a641dfdb4aed10ade"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga50707982e003ce6a641dfdb4aed10ade">&#9670;&nbsp;</a></span>leto_error</h2>
 
@@ -243,7 +265,7 @@ Functions</h2></td></tr>
 <p>Abstraction over leto_error_handle. </p>
 <p>Handles an error, outputs information about the file, function and line in which the error occurred to the error stream, takes the error message as an argument </p>
 
-<p class="definition">Definition at line <a class="el" href="leto-error_8h_source.html#l00077">77</a> of file <a class="el" href="leto-error_8h_source.html">leto-error.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leto-error_8h_source.html#l00086">86</a> of file <a class="el" href="leto-error_8h_source.html">leto-error.h</a>.</p>
 
 </div>
 </div>
@@ -266,7 +288,7 @@ Functions</h2></td></tr>
 <p>Abstraction over leto_warning_handle. </p>
 <p>Processes warnings, prints information about the file, function and line to the console, takes the text of the warning as a parameter </p>
 
-<p class="definition">Definition at line <a class="el" href="leto-error_8h_source.html#l00086">86</a> of file <a class="el" href="leto-error_8h_source.html">leto-error.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leto-error_8h_source.html#l00095">95</a> of file <a class="el" href="leto-error_8h_source.html">leto-error.h</a>.</p>
 
 </div>
 </div>
@@ -285,7 +307,7 @@ Functions</h2></td></tr>
 <p>NULL Optional Parameter Warning. </p>
 <p>This warning is triggered when NULL is passed to any function as an optional parameter </p>
 
-<p class="definition">Definition at line <a class="el" href="leto-error_8h_source.html#l00068">68</a> of file <a class="el" href="leto-error_8h_source.html">leto-error.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leto-error_8h_source.html#l00077">77</a> of file <a class="el" href="leto-error_8h_source.html">leto-error.h</a>.</p>
 
 </div>
 </div>
@@ -340,7 +362,7 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section warning"><dt>Warning</dt><dd>This is a noreturn function, after which the program ends </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="leto-error_8h_source.html#l00099">99</a> of file <a class="el" href="leto-error_8h_source.html">leto-error.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leto-error_8h_source.html#l00108">108</a> of file <a class="el" href="leto-error_8h_source.html">leto-error.h</a>.</p>
 
 </div>
 </div>
@@ -393,7 +415,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="leto-error_8h_source.html#l00112">112</a> of file <a class="el" href="leto-error_8h_source.html">leto-error.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="leto-error_8h_source.html#l00121">121</a> of file <a class="el" href="leto-error_8h_source.html">leto-error.h</a>.</p>
 
 </div>
 </div>
