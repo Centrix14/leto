@@ -12,7 +12,7 @@
 #include <stdlib.h>
 
 /**
- * \defgroup leto-error Handling Errors and Warnings
+ * \defgroup leto-error [leto-error] Handling Errors and Warnings
  * @{
  */
 
