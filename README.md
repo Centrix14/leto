@@ -9,7 +9,7 @@ The library is currently under development and will include:
 + `DONE` **leto-error** — Error and warning handling library
 + `DONE` **leto-test** — Library for simple unit testing
 + `DONE` **leto-so** — Library for working with dynamic libraries
-+ **leto-utsf** — Data transfer and storage library
++ `WIP` **leto-utsf** — Data transfer and storage library
 + **leto-module** — Library for working with program modules
 
 # How to use it?
