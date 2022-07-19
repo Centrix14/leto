@@ -9,7 +9,7 @@
 #define __LETO_LIBRARY_TEST_SYSTEM_LETO_TEST_HEADER_FILE_INCLUDED__
 
 /**
- * \defgroup leto_test Simple unit testing system
+ * \defgroup leto_test [leto-test] Simple unit testing system
  * @{
  */
 
