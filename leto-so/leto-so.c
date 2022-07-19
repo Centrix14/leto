@@ -11,7 +11,7 @@
 #include "../leto-error/leto-error.h"
 
 /**
- * \defgroup leto_so Working with dynamic libraries
+ * \defgroup leto_so [leto-so] Working with dynamic libraries
  * @{
  */
 
