@@ -6,27 +6,26 @@
   - [X] leto-test library
   - [X] leto-error library
   - [X] leto-so library
-  - [ ] leto-utsf library
-  - [ ] leto-interface library
+  - [-] leto-utsf library
   - [ ] leto-module library
 
-* TODO [5/8]
+* TODO [6/7]
   - [X] Write readme
   - [X] Create single header file for library
   - [X] Create Make script for library compiling
   - [X] create Make script for library testing
   - [X] Add leto documentation to my documentation site
-  - [ ] For leto-utsf: append type system
-  - [ ] For leto-utsf: append utsf-container with create and delete functions
+  - [X] For leto-utsf: append utsf-container with create and delete functions
   - [ ] For leto-utsf: append utsf with create, delete, append, insert
     and eject functions
+  - [ ] For leto-utsf: realise construct, apply and clone functionality
 	
 ** TODO Add documentation [4/6]
   - [X] leto-list
   - [X] leto-test
   - [X] leto-ies
   - [X] leto-so
-  - [ ] leto-utsf
+  - [-] leto-utsf
   - [ ] leto-interface
   - [ ] leto-module
 	
