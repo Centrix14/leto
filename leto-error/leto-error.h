@@ -59,6 +59,15 @@
 
 #define LEC_FAIL_TO_CLOSE_DYNAMIC_LIBRARY "Fail to close dynamic library"
 
+/// Container reuse error
+/**
+ * This error occurs when trying to reuse the container, i.e. add data
+ * even though it already exists
+ */
+
+#define LEC_REUSE_ATTEMPT "An attempt to reuse the container, add data" \
+	"to it, although it already contains something, was stopped"
+
 /// NULL Optional Parameter Warning
 /**
  * This warning is triggered when NULL is passed to any function as an
