@@ -5,7 +5,8 @@ COMMON_FLAGS = -std=c11
 DEBUG_FLAGS = -Wall -O0 -g
 
 LIBS = -ldl
-SOURCES = leto-list/leto-list.c leto-so/leto-so.c leto-utsf/leto-utsf.c
+SOURCES = leto-list/leto-list.c leto-so/leto-so.c leto-utsf/leto-utsf.c leto-error/leto-error.c
+LETO_LIB_NAME = libleto.a
 
 TEST_PATH = test
 TEST_NAME_LETO_LIST = $(TEST_PATH)/t-leto-list
@@ -18,7 +19,7 @@ compile-libs:
 	$(CC) $(COMMON_FLAGS) -c $(SOURCES) $(LIBS)
 
 build-libs:
-	$(BUILD_LIBS) libleto.a *.o
+	$(BUILD_LIBS) $(LETO_LIB_NAME) *.o
 
 test: create-test-path test-leto-list test-leto-so test-leto-utsf test-run
 
@@ -26,14 +27,14 @@ create-test-path:
 	mkdir -p $(TEST_PATH)
 
 test-leto-list:
-	$(CC) $(COMMON_FLAGS) $(DEBUG_FLAGS) -o $(TEST_NAME_LETO_LIST) leto-list/test.c leto-list/leto-list.c
+	$(CC) $(COMMON_FLAGS) $(DEBUG_FLAGS) -o $(TEST_NAME_LETO_LIST) leto-list/test.c $(LETO_LIB_NAME)
 
 test-leto-so:
-	$(CC) $(COMMON_FLAGS) $(DEBUG_FLAGS) -o $(TEST_NAME_LETO_SO) leto-so/test.c leto-so/leto-so.c $(LIBS)
+	$(CC) $(COMMON_FLAGS) $(DEBUG_FLAGS) -o $(TEST_NAME_LETO_SO) leto-so/test.c $(LETO_LIB_NAME) $(LIBS)
 	$(CC) -shared -o $(TEST_PATH)/t-leto-so-lib.so -fPIC leto-so/test-library.c
 
 test-leto-utsf:
-	$(CC) $(COMMON_FLAGS) $(DEBUG_FLAGS) -o $(TEST_NAME_LETO_UTSF) leto-utsf/test.c leto-utsf/leto-utsf.c
+	$(CC) $(COMMON_FLAGS) $(DEBUG_FLAGS) -o $(TEST_NAME_LETO_UTSF) leto-utsf/test.c $(LETO_LIB_NAME)
 
 test-run:
 	$(TEST_PATH)/t-leto-list
