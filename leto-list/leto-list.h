@@ -53,7 +53,7 @@ typedef struct __leto_list_list_t__ leto_t_list;
 
 /// typdef for __leto_list_list_t__
 /**
- * List (abbreviation for __leto_list_list_t__)is intended for use outside the
+ * List (abbreviation for __leto_list_list_t__) is intended for use outside the
  * library, can be replaced by leto_t_list.
  */
 
