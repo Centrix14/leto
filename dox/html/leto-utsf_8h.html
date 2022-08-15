@@ -76,7 +76,16 @@ $(function() {
 
 <p>This file provides an interface to the UTSF library.  
 <a href="#details">More...</a></p>
-<div class="textblock"><div class="dynheader">
+<div class="textblock"><code>#include &quot;<a class="el" href="leto-list_8h_source.html">../leto-list/leto-list.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for leto-utsf.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="leto-utsf_8h__incl.png" border="0" usemap="#leto-utsf_2leto-utsf_8h" alt=""/></div>
+<map name="leto-utsf_2leto-utsf_8h" id="leto-utsf_2leto-utsf_8h">
+<area shape="rect" id="node2" href="leto-list_8h.html" title="Header file of the library of singly linked lists leto&#45;list. " alt="" coords="5,80,156,107"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="leto-utsf_8h__dep__incl.png" border="0" usemap="#leto-utsf_2leto-utsf_8hdep" alt=""/></div>
@@ -93,6 +102,8 @@ Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structleto__utsf__container.html">leto_utsf_container</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">UTSF container.  <a href="structleto__utsf__container.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structleto__utsf.html">leto_utsf</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -100,6 +111,9 @@ Typedefs</h2></td></tr>
 typedef <a class="el" href="structleto__utsf__container.html">leto_utsf_container</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__leto__utsf.html#ga89bcfcb15e0bac8cf1b796bf3eba5e11">utsf_contaiter</a></td></tr>
 <tr class="memdesc:ga89bcfcb15e0bac8cf1b796bf3eba5e11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for external usage. <br /></td></tr>
 <tr class="separator:ga89bcfcb15e0bac8cf1b796bf3eba5e11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga291a04f2bd05331013851abc76d9e637"><td class="memItemLeft" align="right" valign="top">
+typedef <a class="el" href="structleto__utsf.html">leto_utsf</a>&#160;</td><td class="memItemRight" valign="bottom"><b>utsf</b></td></tr>
+<tr class="separator:ga291a04f2bd05331013851abc76d9e637"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -118,6 +132,15 @@ Functions</h2></td></tr>
 <tr class="memitem:ga126379a4037e1de6bf61fbd3b75ccbeb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structleto__utsf__container.html">leto_utsf_container</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__leto__utsf.html#ga126379a4037e1de6bf61fbd3b75ccbeb">leto_utsf_container_clone</a> (<a class="el" href="structleto__utsf__container.html">leto_utsf_container</a> *container)</td></tr>
 <tr class="memdesc:ga126379a4037e1de6bf61fbd3b75ccbeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows you to clone a container (create an identical one to the original one, the data is also cloned)  <a href="group__leto__utsf.html#ga126379a4037e1de6bf61fbd3b75ccbeb">More...</a><br /></td></tr>
 <tr class="separator:ga126379a4037e1de6bf61fbd3b75ccbeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabb1f1ead0ecf9d72fddf1859e3b94ed5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structleto__utsf.html">leto_utsf</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__leto__utsf.html#gabb1f1ead0ecf9d72fddf1859e3b94ed5">leto_utsf_init</a> ()</td></tr>
+<tr class="memdesc:gabb1f1ead0ecf9d72fddf1859e3b94ed5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates new UTSF.  <a href="group__leto__utsf.html#gabb1f1ead0ecf9d72fddf1859e3b94ed5">More...</a><br /></td></tr>
+<tr class="separator:gabb1f1ead0ecf9d72fddf1859e3b94ed5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafd180002a67d4b8f17336327229cb0cd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__leto__utsf.html#gafd180002a67d4b8f17336327229cb0cd">leto_utsf_deinit</a> (<a class="el" href="structleto__utsf.html">leto_utsf</a> *form)</td></tr>
+<tr class="memdesc:gafd180002a67d4b8f17336327229cb0cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frees up the memory allocated for the form.  <a href="group__leto__utsf.html#gafd180002a67d4b8f17336327229cb0cd">More...</a><br /></td></tr>
+<tr class="separator:gafd180002a67d4b8f17336327229cb0cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga516539e75786273f12334b1acb33b4c8"><td class="memItemLeft" align="right" valign="top">
+void&#160;</td><td class="memItemRight" valign="bottom"><b>leto_utsf_append</b> (<a class="el" href="structleto__utsf.html">leto_utsf</a> *form, char *name)</td></tr>
+<tr class="separator:ga516539e75786273f12334b1acb33b4c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This file provides an interface to the UTSF library. </p>
