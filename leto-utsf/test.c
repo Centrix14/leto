@@ -10,11 +10,17 @@ void test_clear();
 void test_add_data();
 void test_clone();
 
+void test_utsf_init();
+void test_utsf_append();
+
 int main(void) {
 	leto_test("init", test_init);
 	leto_test("clear", test_clear);
 	leto_test("add_data", test_add_data);
 	leto_test("clone", test_clone);
+
+	leto_test("utsf-init", test_utsf_init);
+	leto_test("utsf-append", test_utsf_append);
 	
 	return 0;
 }
@@ -70,4 +76,22 @@ void test_clone() {
 
 	leto_utsf_container_deinit(container);
 	leto_utsf_container_deinit(clone);
+}
+
+void test_utsf_init() {
+	utsf *form = NULL;
+
+	form = leto_utsf_init();
+	leto_utsf_deinit(form);
+}
+
+void test_utsf_append() {
+	utsf *form = NULL;
+
+	form = leto_utsf_init();
+
+	for (int i = 0; i < 10; i++)
+		leto_utsf_append(form, "test-container");
+	
+	leto_utsf_deinit(form);
 }
