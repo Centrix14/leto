@@ -10,6 +10,7 @@
 #include <string.h>
 
 #include "../leto-error/leto-error.h"
+#include "../leto-list/leto-list.h"
 #include "leto-utsf.h"
 
 /**
@@ -55,6 +56,7 @@ void leto_utsf_container_deinit(leto_utsf_container *container) {
 		free(container->name);
 	if (container->data)
 		free(container->data);
+	free(container);
 }
 
 /**
@@ -115,6 +117,69 @@ leto_utsf_container *leto_utsf_container_clone(leto_utsf_container
 								 container->size);
 
 	return clone;
+}
+
+/**
+ * \brief Creates new UTSF
+ * \return new UTSF
+ * \warning If memory cannot be allocated for the new UTSF, the
+ * function raises an error and the program terminates.
+ */
+
+leto_utsf *leto_utsf_init() {
+	leto_utsf *form = NULL;
+
+	form = (leto_utsf*)malloc(sizeof(leto_utsf));
+	if (!form)
+		leto_error(LEC_FAIL_MEMORY_ALLOCATION);
+
+	form->data = NULL;
+	form->length = 0;
+
+	return form;
+}
+
+static void leto_utsf_container_deinit_wrapper(void *container) {
+	leto_utsf_container_deinit((leto_utsf_container*)container);
+}
+
+/**
+ * \brief Frees up the memory allocated for the form
+ * \param[in] form Exempt form
+ * 
+ * The memory allocated for the form is released as follows:
+ * 1. UTSF containers are released, along with their names and data, if any
+ * 2. The singly linked list in which the containers are stored is released
+ * 3. The form is being released
+ */
+
+void leto_utsf_deinit(leto_utsf *form) {
+	if (!form)
+		leto_warning(LWC_NULL_AS_OPTIONAL_PARAMETER);
+	if (!form->data)
+		leto_warning(LWC_NULL_AS_OPTIONAL_DATA);
+
+	leto_list_foreach(form->data, leto_utsf_container_deinit_wrapper);
+	leto_list_iterator(form->data, leto_list_deinit_node, NULL);
+
+	free(form);
+}
+
+/**
+ * \brief Adds a new container to the form
+ * \param[in] form The form to which the container is added
+ * \param[in] name Name of the new container
+ */
+
+void leto_utsf_append(leto_utsf *form, char *name) {
+	leto_utsf_container *container = NULL;
+
+	container = leto_utsf_container_init(name);
+	
+	if (form->data)
+		leto_list_expand_list(form->data, container);
+	else
+		form->data = leto_list_init_node(NULL, container);
 }
 
 /** @} */
