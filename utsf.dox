@@ -1,0 +1,29 @@
+/**
+\page utsf_docs UTSF principles
+
+# What is UTSF?
+
+1. UTSF (Universal Transport and Store Form) — this is a data type, as well as a protocol that implements the storage and transmission of various data in the form of a single object. The main purpose is to transfer and return multiple data from functions, storing data of the same nature together.
+
+2. In its functionality, UTSF is similar to structures and objects. Unlike structures, UTSF supports construction and cloning. Unlike objects, UTSF has no methods and classes.
+
+3. UTSF describes _forms_ - entities that have the characteristics and purpose indicated above.
+
+# How UTSF works?
+
+1. UTSF consists of three components:
+
+   - UTSF-container. The UTSF container is the basic component of the form. It allows you to store a portion of data of the same type (one number, symbol, string, array, structure, etc.). The container is a universal storage.
+   - Single-linked list. A singly linked list is a structure that binds containers together.
+   - UTSF structure. The UTSF structure is a binding component: it is a wrapper for the list, provides opportunities for working with the form.
+
+   You can think of UTSF as a freight train: containers store cargo (these are UTSF containers), platforms and couplings serve as a means of connecting containers together (this is a single-linked list), and the word _train_ is the connection of all this together (the UTSF structure).
+
+2. UTSF provides three basic form creation mechanisms:
+   - Expansion. An extension is the addition of new empty fields (containers) to the form.
+   - Construction. Designing is the creation of a new form based on an existing one. At the same time, only the names of the fields are copied, but their values in the constructed form will be empty.
+   - Cloning. Cloning implies a construction with copying of field values.
+
+3. The forms cannot be reused. They are created once and for one task.
+
+*/
