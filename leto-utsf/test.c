@@ -12,6 +12,8 @@ void test_clone();
 
 void test_utsf_init();
 void test_utsf_append();
+void test_utsf_insert();
+void test_utsf_eject();
 
 int main(void) {
 	leto_test("init", test_init);
@@ -21,6 +23,8 @@ int main(void) {
 
 	leto_test("utsf-init", test_utsf_init);
 	leto_test("utsf-append", test_utsf_append);
+	leto_test("utsf-insert", test_utsf_insert);
+	leto_test("utsf-eject", test_utsf_eject);
 	
 	return 0;
 }
@@ -93,5 +97,43 @@ void test_utsf_append() {
 	for (int i = 0; i < 10; i++)
 		leto_utsf_append(form, "test-container");
 	
+	leto_utsf_deinit(form);
+}
+
+void __utsf_container_name_printer(void *data) {
+	utsf_contaiter *container = NULL;
+
+	container = (utsf_contaiter*)data;
+	puts(container->name);
+}
+
+void test_utsf_insert() {
+	utsf *form = NULL;
+
+	form = leto_utsf_init();
+
+	for (int i = 0; i < 10; i++)
+		leto_utsf_append(form, "test-container");
+	
+	leto_utsf_insert(form, "inserted-container", 3);
+	leto_list_foreach(form->data, __utsf_container_name_printer);
+
+	leto_utsf_deinit(form);
+}
+
+void test_utsf_eject() {
+	utsf *form = NULL;
+
+	form = leto_utsf_init();
+
+	for (int i = 0; i < 10; i++)
+		leto_utsf_append(form, "test-container");
+	
+	leto_utsf_insert(form, "inserted-container", 3);
+	leto_list_foreach(form->data, __utsf_container_name_printer);
+
+	leto_utsf_eject(form, 3);
+	leto_list_foreach(form->data, __utsf_container_name_printer);
+
 	leto_utsf_deinit(form);
 }
