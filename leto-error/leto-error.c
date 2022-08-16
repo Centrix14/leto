@@ -8,6 +8,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "../leto-type/leto-type.h"
+
 /**
  * \addtogroup leto-error
  * @{
@@ -26,7 +28,7 @@
 _Noreturn void leto_error_handle(char *error_msg,
 								 char *file,
 								 char *func,
-								 int line) {
+								 positive line) {
 	fprintf(stderr, "ERROR in %s:%s line %d: %s\n",
 			file, func, line, error_msg);
 	exit(EXIT_FAILURE);
@@ -43,7 +45,7 @@ _Noreturn void leto_error_handle(char *error_msg,
 void leto_warning_handle(char *warning_msg,
 						 char *file,
 						 char *func,
-						 int line) {
+						 positive line) {
 	fprintf(stderr, "WARNING in %s:%s line %d: %s\n",
 			file, func, line, warning_msg);
 }
