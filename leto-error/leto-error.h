@@ -9,8 +9,6 @@
 #ifndef __LETO_LIBRARY_INTERNAL_ERROR_SYSTEM_LETO_ERROR_HEADER_FILE_INCLUDED__
 #define __LETO_LIBRARY_INTERNAL_ERROR_SYSTEM_LETO_ERROR_HEADER_FILE_INCLUDED__
 
-#include <stdlib.h>
-
 /**
  * \defgroup leto-error [leto-error] Handling Errors and Warnings
  * @{
@@ -110,12 +108,12 @@
 _Noreturn void leto_error_handle(char *error_msg,
 								 char *file,
 								 char *func,
-								 int line);
+								 positive line);
 
 void leto_warning_handle(char *warning_msg,
 						 char *file,
 						 char *func,
-						 int line);
+						 positive line);
 
 #endif
 
