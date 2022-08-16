@@ -40,7 +40,12 @@ make test
 ```
 
 # Where can I find documentation?
-The documentation comes with the library as an html page. You can,
-however, also visit our [website](https://centrix14.github.io/leto/),
-where this documentation is also posted.
+The documentation can be generated using the following script:
+
+``` shell
+make docs
+```
+
+ALso, you can visit our [website](https://centrix14.github.io/leto)
+where documentation is posted.
 
