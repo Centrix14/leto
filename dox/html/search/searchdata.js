@@ -1,11 +1,11 @@
 var indexSectionsWithContent =
 {
-  0: "_dlnstu",
+  0: "_cdlnpstu",
   1: "_l",
   2: "lt",
   3: "lt",
-  4: "dns",
-  5: "lu",
+  4: "dlns",
+  5: "clpu",
   6: "lt"
 };
 

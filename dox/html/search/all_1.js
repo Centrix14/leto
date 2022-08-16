@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['data',['data',['../struct____leto__list__list__t____.html#ac46afe2e5718bfcd77d94b529d009c76',1,'__leto_list_list_t__::data()'],['../structleto__utsf__container.html#a4e47c417ab414f8cb2e4c31460f13f8e',1,'leto_utsf_container::data()']]]
+  ['common',['common',['../group__leto__type.html#ga24ac1cfdf82f9814940d98bc4a92cdb8',1,'leto-type.h']]]
 ];
