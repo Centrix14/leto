@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.13"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Leto Library: Main Page</title>
+<title>Leto Library: UTSF principles</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -45,7 +45,6 @@ $(function() {
 });
 </script>
 <div id="main-nav"></div>
-</div><!-- top -->
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -60,31 +59,35 @@ $(function() {
 </iframe>
 </div>
 
+</div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title">Leto Library Documentation</div>  </div>
+<div class="title">UTSF principles </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Leto is a library for developing modular and stable software in C language</p>
-<h1>How it works?</h1>
-<p>The library is currently under development and will include:</p><ul>
-<li><code>DONE</code> <b>leto-list</b> — Singly Linked List Library</li>
-<li><code>DONE</code> <b>leto-error</b> — Error and warning handling library</li>
-<li><code>DONE</code> <b>leto-test</b> — Library for simple unit testing</li>
-<li><code>DONE</code> <b>leto-so</b> — Library for working with dynamic libraries</li>
-<li><code>DONE</code> <b>leto-type</b> — Miniature type library</li>
-<li><code>WIP</code> <b>leto-utsf</b> — Data transfer and storage library</li>
-</ul>
-<h1>How to use it?</h1>
-<p>How you use the library is up to you, but I recommend statically linking it to your program. If you follow the instructions in "How to compile it?" then adding the library to your application is trivial.</p><ol type="1">
-<li>Include the heading <code>leto.h</code> in the right places</li>
-<li>Add libleto.a to the compilation files (or copy it to the directory where the compiler stores the libraries and use the -lleto flag)</li>
+<div class="textblock"><h1>What is UTSF?</h1>
+<ol type="1">
+<li>UTSF (Universal Transport and Store Form) — this is a data type, as well as a protocol that implements the storage and transmission of various data in the form of a single object. The main purpose is to transfer and return multiple data from functions, storing data of the same nature together.</li>
+<li>In its functionality, UTSF is similar to structures and objects. Unlike structures, UTSF supports construction and cloning. Unlike objects, UTSF has no methods and classes.</li>
+<li>UTSF describes <em>forms</em> - entities that have the characteristics and purpose indicated above.</li>
 </ol>
-<h1>How to compile it?</h1>
-<p>To compile you will need a compiler with C11 support and the dl library. To compile use:</p>
-<div class="fragment"><div class="line">make build</div></div><!-- fragment --><p>After that, the <code>libleto.a</code> file will appear in the directory. In addition, you can run tests:</p>
-<div class="fragment"><div class="line">make test</div></div><!-- fragment --><h1>Where can I find documentation?</h1>
-<p>The documentation comes with the library as an html page. You can, however, also visit our <a href="https://centrix14.github.io/leto/">website</a>, where this documentation is also posted. </p>
+<h1>How UTSF works?</h1>
+<ol type="1">
+<li><p class="startli">UTSF consists of three components:</p><ul>
+<li>UTSF-container. The UTSF container is the basic component of the form. It allows you to store a portion of data of the same type (one number, symbol, string, array, structure, etc.). The container is a universal storage.</li>
+<li>Single-linked list. A singly linked list is a structure that binds containers together.</li>
+<li>UTSF structure. The UTSF structure is a binding component: it is a wrapper for the list, provides opportunities for working with the form.</li>
+</ul>
+<p class="startli">You can think of UTSF as a freight train: containers store cargo (these are UTSF containers), platforms and couplings serve as a means of connecting containers together (this is a single-linked list), and the word <em>train</em> is the connection of all this together (the UTSF structure).</p>
+</li>
+<li>UTSF provides three basic form creation mechanisms:<ul>
+<li>Expansion. An extension is the addition of new empty fields (containers) to the form.</li>
+<li>Construction. Designing is the creation of a new form based on an existing one. At the same time, only the names of the fields are copied, but their values in the constructed form will be empty.</li>
+<li>Cloning. Cloning implies a construction with copying of field values.</li>
+</ul>
+</li>
+<li>The forms cannot be reused. They are created once and for one task. </li>
+</ol>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -6,7 +6,8 @@ var indexSectionsWithContent =
   3: "lt",
   4: "dlns",
   5: "clpu",
-  6: "lt"
+  6: "lt",
+  7: "u"
 };
 
 var indexSectionNames =
@@ -17,7 +18,8 @@ var indexSectionNames =
   3: "functions",
   4: "variables",
   5: "typedefs",
-  6: "groups"
+  6: "groups",
+  7: "pages"
 };
 
 var indexSectionLabels =
@@ -28,6 +30,7 @@ var indexSectionLabels =
   3: "Functions",
   4: "Variables",
   5: "Typedefs",
-  6: "Modules"
+  6: "Modules",
+  7: "Pages"
 };
 
