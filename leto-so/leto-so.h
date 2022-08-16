@@ -14,8 +14,8 @@
  */
 
 void *leto_so_open_library(char *library_name);
-void *leto_so_get_symbol(void *library, char *symbol_name);
-void leto_so_close_library(void *library);
+void *leto_so_get_symbol(common library, char *symbol_name);
+void leto_so_close_library(common library);
 
 /** @} */
 
