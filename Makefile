@@ -40,3 +40,6 @@ test-run:
 	$(TEST_PATH)/t-leto-list
 	$(TEST_PATH)/t-leto-so
 	$(TEST_PATH)/t-leto-utsf
+
+docs:
+	doxygen 2> doxyerrors
