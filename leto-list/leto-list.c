@@ -9,8 +9,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "leto-list.h"
+#include "../leto-type/leto-type.h"
 #include "../leto-error/leto-error.h"
+#include "leto-list.h"
 
 /**
  * \addtogroup leto_list
@@ -28,7 +29,7 @@
  * which it returns NULL
  */
 
-leto_t_list *leto_list_init_node(leto_t_list *next, void *data) {
+leto_t_list *leto_list_init_node(leto_t_list *next, common data) {
 	leto_t_list *required_node = NULL;
 
 	required_node = (leto_t_list*)malloc(sizeof(leto_t_list));
@@ -45,8 +46,9 @@ leto_t_list *leto_list_init_node(leto_t_list *next, void *data) {
  * \brief The function of freeing previously allocated memory.
  * \param[in] deinitialized_node The element that should be released
  *
- * \warning Remember that passing pointers to memory that has not been allocated to
- * the function is dangerous and may cause the application to crash.
+ * \warning Remember that passing pointers to memory that has not been
+ * allocated to the function is dangerous and may cause the application to
+ * crash.
  */
 
 void leto_list_deinit_node(leto_t_list *deinitialized_node) {
@@ -58,12 +60,13 @@ void leto_list_deinit_node(leto_t_list *deinitialized_node) {
 
 /**
  * \brief List extension function. Adds a new element to the end.
- * \param[in] parent_node The tail of the list to which a new element is added.
+ * \param[in] parent_node The tail of the list to which a new element is
+ * added.
  * \param[in] data A pointer to the data assigned to the new element.
  * \return New tail of the list (new element)
  */
 
-leto_t_list *leto_list_add_node(leto_t_list *parent_node, void *data) {
+leto_t_list *leto_list_add_node(leto_t_list *parent_node, common data) {
 	leto_t_list *new_node = NULL;
 
 	new_node = leto_list_init_node(NULL, data);
@@ -98,7 +101,7 @@ leto_t_list *leto_list_get_last(leto_t_list *list) {
  * \warning Remember that this function modifies the list, it is not pure
  */
 
-leto_t_list *leto_list_expand_list(leto_t_list *list, void *data) {
+leto_t_list *leto_list_expand_list(leto_t_list *list, common data) {
 	leto_t_list *last = NULL;
 
 	last = leto_list_get_last(list);
@@ -112,11 +115,11 @@ leto_t_list *leto_list_expand_list(leto_t_list *list, void *data) {
  * \param[in] data Data assigned to the element
  *
  * \note Using this function may seem redundant, but it is not. It should be
- * used wherever possible, because in the future, it is possible to expand this
- * functionality, overload it (for example, adding logging)
+ * used wherever possible, because in the future, it is possible to expand
+ * this functionality, overload it (for example, adding logging)
  */
 
-void leto_list_set_data(leto_t_list *node, void *data) {
+void leto_list_set_data(leto_t_list *node, common data) {
 	if (data)
 		node->data = data;
 	else
@@ -129,9 +132,10 @@ void leto_list_set_data(leto_t_list *node, void *data) {
  * \param[in] node_func Function applied to a list item
  * \param[in] data_func The function applied to the data of each element
  * 
- * \details A general function for sorting through all the elements of the list.
- * Allows you to apply the specified functions not only to the data, but also to
- * the list items themselves
+ * \details A general function for sorting through all the elements of the
+ * list.
+ * Allows you to apply the specified functions not only to the data, but
+ * also to the list items themselves
  */
 
 void leto_list_iterator(leto_t_list *list, LETO_T_IFUNC_NODE(node_func),
@@ -152,13 +156,14 @@ void leto_list_iterator(leto_t_list *list, LETO_T_IFUNC_NODE(node_func),
 }
 
 /**
- * \brief The wrapper function over the iterator allows you to work only with
- * the data of each element
+ * \brief The wrapper function over the iterator allows you to work only
+ * with the data of each element
  * \param[in] list Iterable list
  * \param[in] data_func The function allpied to the data of each element
  */
 
-inline void leto_list_foreach(leto_t_list *list, LETO_T_IFUNC_DATA(data_func)) {
+inline void leto_list_foreach(leto_t_list *list,
+							  LETO_T_IFUNC_DATA(data_func)) {
 	leto_list_iterator(list, NULL, data_func);
 }
 
@@ -169,9 +174,9 @@ inline void leto_list_foreach(leto_t_list *list, LETO_T_IFUNC_DATA(data_func)) {
  * \return Element with the corresponding index
  */
 
-leto_t_list *leto_list_get_by_index(leto_t_list *list, unsigned int pos) {
+leto_t_list *leto_list_get_by_index(leto_t_list *list, position pos) {
 	leto_t_list *node = NULL;
-	unsigned int i = 0;
+	positive i = 0;
 
 	node = list;
 	while (node) {
@@ -192,7 +197,8 @@ leto_t_list *leto_list_get_by_index(leto_t_list *list, unsigned int pos) {
  * \param[in] pos Insert position
  */
 
-void leto_list_insert_node(leto_t_list *list, leto_t_list *node, unsigned int pos) {
+void leto_list_insert_node(leto_t_list *list, leto_t_list *node,
+						   position pos) {
 	leto_t_list *old_node = NULL;
 
 	old_node = leto_list_get_by_index(list, pos - 1);
@@ -210,7 +216,7 @@ void leto_list_insert_node(leto_t_list *list, leto_t_list *node, unsigned int po
  * \return The withdrawn element
  */
 
-leto_t_list *leto_list_eject_node(leto_t_list *list, unsigned int pos) {
+leto_t_list *leto_list_eject_node(leto_t_list *list, position pos) {
 	leto_t_list *previous_node = NULL, *ejectable_node = NULL;
 
 	ejectable_node = leto_list_get_by_index(list, pos);
