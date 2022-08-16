@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <dlfcn.h>
 
+#include "../leto-type/leto-type.h"
 #include "../leto-error/leto-error.h"
 
 /**
@@ -39,7 +40,7 @@ void *leto_so_open_library(char *library_name) {
  * \return Pointer to the imported character
  */
 
-void *leto_so_get_symbol(void *library, char *symbol_name) {
+void *leto_so_get_symbol(common library, char *symbol_name) {
 	void *required_symbol = NULL;
 
 	required_symbol = dlsym(library, symbol_name);
@@ -53,7 +54,7 @@ void *leto_so_get_symbol(void *library, char *symbol_name) {
  * \param[in] library Unloaded library
  */
 
-void leto_so_close_library(void *library) {
+void leto_so_close_library(common library) {
 	int is_close_error = 0;
 
 	is_close_error = dlclose(library);
