@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "../leto-type/leto-type.h"
 #include "../leto-error/leto-error.h"
 #include "../leto-list/leto-list.h"
 #include "leto-utsf.h"
@@ -88,8 +89,8 @@ void leto_utsf_container_clear(leto_utsf_container *container) {
  */
 
 void leto_utsf_container_add_data(leto_utsf_container *container,
-								  void *data,
-								  unsigned int size) {
+								  common data,
+								  positive size) {
 	if (container->data)
 		leto_error(LEC_REUSE_ATTEMPT);
 
@@ -180,6 +181,33 @@ void leto_utsf_append(leto_utsf *form, char *name) {
 		leto_list_expand_list(form->data, container);
 	else
 		form->data = leto_list_init_node(NULL, container);
+}
+
+/**
+ * \brief Adds a new container to the form
+ * \param[in] form The form itself
+ * \param[in] name Name of the new container
+ * \param[in] pos The position where the container will be inserted
+ */
+
+void leto_utsf_insert(leto_utsf *form, char *name, position pos) {
+	leto_utsf_container *new_container = NULL;
+	leto_t_list *insertable_node = NULL;
+
+	new_container = leto_utsf_container_init(name);
+	insertable_node = leto_list_init_node(NULL, new_container);
+
+	leto_list_insert_node(form->data, insertable_node, pos);
+}
+
+/**
+ * \brief Remove the container from the form
+ * \param[in] form The form itself
+ * \param[in] pos The position from which the container will be removed
+ */
+
+void leto_utsf_eject(leto_utsf *form, position pos) {
+	leto_list_eject_node(form->data, pos);
 }
 
 /** @} */
