@@ -61,6 +61,8 @@ leto_utsf_container *leto_utsf_container_clone(leto_utsf_container
 leto_utsf *leto_utsf_init();
 void leto_utsf_deinit(leto_utsf *form);
 void leto_utsf_append(leto_utsf *form, char *name);
+void leto_utsf_insert(leto_utsf *form, char *name, unsigned int pos);
+void leto_utsf_eject(leto_utsf *form, unsigned int pos);
 
 /** @} */
 
