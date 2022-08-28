@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdarg.h>
 
 #include "../leto-type/leto-type.h"
 #include "../leto-error/leto-error.h"
@@ -206,8 +207,84 @@ void leto_utsf_insert(leto_utsf *form, char *name, position pos) {
  * \param[in] pos The position from which the container will be removed
  */
 
-void leto_utsf_eject(leto_utsf *form, position pos) {
-	leto_list_eject_node(form->data, pos);
+leto_t_list *leto_utsf_eject(leto_utsf *form, position pos) {
+	return leto_list_eject_node(form->data, pos);
+}
+
+leto_utsf *leto_utsf_construct(leto_utsf *form) {
+	leto_utsf *constructed_form = NULL;
+	leto_t_list *form_content = NULL;
+	leto_utsf_container *form_container = NULL;
+
+	constructed_form = leto_utsf_init();
+	form_content = form->data;
+	while (form_content) {
+		form_container = (leto_utsf_container*)form_content->data;
+		leto_utsf_append(constructed_form, form_container->name);
+		
+		form_content = form_content->next;
+	}
+
+	return constructed_form;
+}
+
+leto_utsf *leto_utsf_clone(leto_utsf *form) {
+	leto_utsf *cloned_form = NULL;
+	leto_t_list *form_content = NULL;
+	leto_utsf_container *form_container = NULL, *cloned_container = NULL;
+
+	cloned_form = leto_utsf_init();
+	form_content = form->data;
+	while (form_content) {
+		form_container = form_content->data;
+		cloned_container = leto_utsf_container_clone(form_container);
+		
+		if (cloned_form->data)
+			leto_list_expand_list(cloned_form->data, cloned_container);
+		else
+			cloned_form->data = leto_list_init_node(NULL, cloned_container);
+
+		form_content = form_content->next;
+	}
+
+	return cloned_form;
+}
+
+void leto_utsf_fill_field(leto_utsf *form, char *field_name,
+						  positive size, void *data) {
+	leto_t_list *form_content = NULL;
+	leto_utsf_container *container = NULL;
+
+	form_content = form->data;
+	while (form_content) {
+		container = (leto_utsf_container*)form_content->data;
+		if (!strcmp(container->name, field_name))
+			leto_utsf_container_add_data(container, data, size);
+
+		form_content = form_content->next;
+	}
+}
+
+void leto_utsf_apply(leto_utsf *form, ...) {
+	va_list args_list;
+	char *field_name = NULL;
+	positive size = 0;
+	common data = NULL;
+
+	va_start(args_list, form);
+
+	field_name = va_arg(args_list, char*);
+	size = va_arg(args_list, positive);
+	data = va_arg(args_list, common);
+	while (field_name && size && data) {
+		leto_utsf_fill_field(form, field_name, size, data);
+		
+		field_name = va_arg(args_list, char*);
+		size = va_arg(args_list, positive);
+		data = va_arg(args_list, common);
+	}
+	
+	va_end(args_list);
 }
 
 /** @} */
