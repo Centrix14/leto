@@ -2,6 +2,7 @@
 #include <assert.h>
 #include <string.h>
 
+#include "../leto-type/leto-type.h"
 #include "leto-utsf.h"
 #include "../leto-test/leto-test.h"
 
@@ -14,6 +15,9 @@ void test_utsf_init();
 void test_utsf_append();
 void test_utsf_insert();
 void test_utsf_eject();
+void test_utsf_construct();
+void test_utsf_fill_field();
+void test_utsf_apply();
 
 int main(void) {
 	leto_test("init", test_init);
@@ -25,6 +29,9 @@ int main(void) {
 	leto_test("utsf-append", test_utsf_append);
 	leto_test("utsf-insert", test_utsf_insert);
 	leto_test("utsf-eject", test_utsf_eject);
+	leto_test("utsf-conctruct", test_utsf_construct);
+	leto_test("utsf-fill-field", test_utsf_fill_field);
+	leto_test("utsf-apply", test_utsf_apply);
 	
 	return 0;
 }
@@ -123,6 +130,8 @@ void test_utsf_insert() {
 
 void test_utsf_eject() {
 	utsf *form = NULL;
+	List *ejected_node = NULL;
+	utsf_contaiter *ejected_container = NULL;
 
 	form = leto_utsf_init();
 
@@ -132,8 +141,103 @@ void test_utsf_eject() {
 	leto_utsf_insert(form, "inserted-container", 3);
 	leto_list_foreach(form->data, __utsf_container_name_printer);
 
-	leto_utsf_eject(form, 3);
+	ejected_node = leto_utsf_eject(form, 3);
+	ejected_container = (utsf_contaiter*)ejected_node->data;
+	
 	leto_list_foreach(form->data, __utsf_container_name_printer);
+
+	leto_utsf_deinit(form);
+	leto_utsf_container_deinit(ejected_container);
+	leto_list_deinit_node(ejected_node);
+}
+
+void test_utsf_construct() {
+	utsf *form = NULL, *cons = NULL;
+
+	form = leto_utsf_init();
+
+	leto_utsf_append(form, "First name");
+	leto_utsf_append(form, "Second name");
+	leto_utsf_append(form, "Age");
+	leto_utsf_append(form, "Gender");
+
+	cons = leto_utsf_construct(form);
+	leto_list_foreach(cons->data, __utsf_container_name_printer);
+	
+	leto_utsf_deinit(form);
+	leto_utsf_deinit(cons);
+}
+
+void test_utsf_clone() {
+	utsf *form = NULL, *clone = NULL;
+	char first_name[] = "Karl",
+		second_name[] = "Marx",
+		gender[] = "male";
+	int age = 45;
+
+	form = leto_utsf_init();
+	
+	leto_utsf_append(form, "First name");
+	leto_utsf_append(form, "Second name");
+	leto_utsf_append(form, "Age");
+	leto_utsf_append(form, "Gender");
+
+	leto_utsf_apply(form,
+					"First name", _p(first_name),
+					"Second name", _p(second_name),
+					"Age", _v(age),
+					"Gender", _p(gender));
+
+	clone = leto_utsf_construct(form);
+	leto_list_foreach(clone->data, __utsf_container_name_printer);
+	
+	leto_utsf_deinit(form);
+	leto_utsf_deinit(clone);
+}
+
+void test_utsf_fill_field() {
+	utsf *form = NULL;
+	char first_name[] = "Karl",
+		second_name[] = "Marx",
+		gender[] = "male";
+	int age = 45;
+
+	form = leto_utsf_init();
+	
+	leto_utsf_append(form, "First name");
+	leto_utsf_append(form, "Second name");
+	leto_utsf_append(form, "Age");
+	leto_utsf_append(form, "Gender");
+
+	leto_utsf_fill_field(form, "First name", _p(first_name));
+	leto_utsf_fill_field(form, "Second name", strlen(second_name) + 1,
+						 second_name);
+	leto_utsf_fill_field(form, "Age", sizeof(int), &age);
+	leto_utsf_fill_field(form, "Gender", strlen(gender) + 1,
+						 gender);
+
+	leto_utsf_deinit(form);
+}
+
+void test_utsf_apply() {
+	utsf *form = NULL;
+	char first_name[] = "Karl",
+		second_name[] = "Marx",
+		gender[] = "male";
+	int age = 45;
+
+	form = leto_utsf_init();
+	
+	leto_utsf_append(form, "First name");
+	leto_utsf_append(form, "Second name");
+	leto_utsf_append(form, "Age");
+	leto_utsf_append(form, "Gender");
+
+	leto_utsf_apply(form,
+					"First name", _p(first_name),
+					"Second name", _p(second_name),
+					"Age", _v(age),
+					"Gender", _p(gender));
 
 	leto_utsf_deinit(form);
 }
