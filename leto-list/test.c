@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <assert.h>
 
+#include "../leto-type/leto-type.h"
 #include "leto-list.h"
 #include "../leto-test/leto-test.h"
 
