@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <assert.h>
 
+#include "../leto-type/leto-type.h"
 #include "../leto-test/leto-test.h"
 #include "leto-so.h"
 
@@ -37,8 +38,10 @@ void test_get_symbol() {
 	int multiple_func_result = 0;
 	void *test_library = NULL;
 
-	test_library = leto_so_open_library("/home/user/leto/test/t-leto-so-lib.so");
-	multiple_func = (int (*)(int, int))leto_so_get_symbol(test_library, "multiple");
+	test_library =
+		leto_so_open_library("/home/user/leto/test/t-leto-so-lib.so");
+	multiple_func =
+		(int (*)(int, int))leto_so_get_symbol(test_library, "multiple");
 
 	multiple_func_result = multiple_func(2, 3);
 
