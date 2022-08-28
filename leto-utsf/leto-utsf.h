@@ -14,9 +14,15 @@
  * @{
  */
 
+#define _p(data) _Generic((data),						\
+						  char*: strlen(data) + 1,		\
+						  default: sizeof(data)), data
+
+#define _v(data) sizeof(data), &data
+
 /// UTSF container
 /**
- * The structure of a UTSF container is a UTSF building block that stores a
+ * the structure of a UTSF container is a UTSF building block that stores a
  * single value
  */
 
@@ -62,7 +68,13 @@ leto_utsf *leto_utsf_init();
 void leto_utsf_deinit(leto_utsf *form);
 void leto_utsf_append(leto_utsf *form, char *name);
 void leto_utsf_insert(leto_utsf *form, char *name, unsigned int pos);
-void leto_utsf_eject(leto_utsf *form, unsigned int pos);
+leto_t_list *leto_utsf_eject(leto_utsf *form, position pos);
+
+leto_utsf *leto_utsf_construct(leto_utsf *form);
+
+void leto_utsf_fill_field(leto_utsf *form, char *field_name,
+						  positive size, void *data);
+void leto_utsf_apply(leto_utsf *form, ...);
 
 /** @} */
 
