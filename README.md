@@ -10,7 +10,6 @@ The library is currently under development and will include:
 + `DONE` **leto-test** — Library for simple unit testing
 + `DONE` **leto-so** — Library for working with dynamic libraries
 + `WIP` **leto-utsf** — Data transfer and storage library
-+ **leto-module** — Library for working with program modules
 
 # How to use it?
 
