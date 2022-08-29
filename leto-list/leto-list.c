@@ -9,8 +9,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "../leto-type/leto-type.h"
-#include "../leto-error/leto-error.h"
 #include "leto-list.h"
 
 /**
