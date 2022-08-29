@@ -8,15 +8,39 @@
 #ifndef __LETO_LIBRARY_UTSF_LIBRARY_LETO_UTSF_HEADER_FILE_INCLUDED__
 #define __LETO_LIBRARY_UTSF_LIBRARY_LETO_UTSF_HEADER_FILE_INCLUDED__
 
+#include "../leto-type/leto-type.h"
+#include "../leto-error/leto-error.h"
 #include "../leto-list/leto-list.h"
 
 /** \addtogroup leto_utsf
  * @{
  */
 
+/// Macro typifier for pointers
+/**
+ * A special macro for shortening the call record of the 
+ * leto_utsf_fill_field and leto_utsf_apply functions. It is designed to be 
+ * used together with pointers. The macro is expanded into two arguments: 
+ * size and data.
+ *
+ * In the case when a string is passed to him, he, using strlen(), 
+ * determines its length and outputs size equal to strlen(str) + 1.
+ *
+ * In other cases, the size is determined via sizeof.
+ */
 #define _p(data) _Generic((data),						\
 						  char*: strlen(data) + 1,		\
 						  default: sizeof(data)), data
+
+/// Macro typifier for values
+/**
+ * A special macro for shortening the call record of the 
+ * leto_utsf_fill_field and leto_utsf_apply functions. It is designed to be 
+ * used together with the values. The macro is expanded into two arguments: 
+ * size and data.
+ *
+ * The size is determined via sizeof.
+ */
 
 #define _v(data) sizeof(data), &data
 
