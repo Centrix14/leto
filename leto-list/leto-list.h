@@ -8,6 +8,9 @@
 #ifndef __LETO_LIBRARY_LIST_SYSTEM_LETO_LIST_HEADER_FILE_INCLUDED__
 #define __LETO_LIBRARY_LIST_SYSTEM_LETO_LIST_HEADER_FILE_INCLUDED__
 
+#include "../leto-type/leto-type.h"
+#include "../leto-error/leto-error.h"
+
 /**
  * \defgroup leto_list [leto-list] Library for working with singly linked \
  * lists
