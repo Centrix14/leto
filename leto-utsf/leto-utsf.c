@@ -10,14 +10,11 @@
 #include <string.h>
 #include <stdarg.h>
 
-#include "../leto-type/leto-type.h"
-#include "../leto-error/leto-error.h"
-#include "../leto-list/leto-list.h"
 #include "leto-utsf.h"
 
 /**
  * \defgroup leto_utsf [leto-utsf] Universal Transport and Store Form \
- * library
+ *  library
  * @{
  */
 
@@ -205,11 +202,21 @@ void leto_utsf_insert(leto_utsf *form, char *name, position pos) {
  * \brief Remove the container from the form
  * \param[in] form The form itself
  * \param[in] pos The position from which the container will be removed
+ * \return Returns the extracted list item
  */
 
 leto_t_list *leto_utsf_eject(leto_utsf *form, position pos) {
 	return leto_list_eject_node(form->data, pos);
 }
+
+/**
+ * \brief Creates a new form based on the existing one. 
+ * \param[in] form Original form
+ * \return New form
+ * This function provides one of three methods for creating new forms.
+ * The construction involves creating a new form with the same fields as 
+ * the original one. The data is not copied during the construction.
+ */
 
 leto_utsf *leto_utsf_construct(leto_utsf *form) {
 	leto_utsf *constructed_form = NULL;
@@ -227,6 +234,15 @@ leto_utsf *leto_utsf_construct(leto_utsf *form) {
 
 	return constructed_form;
 }
+
+/**
+ * \brief Cloning the form
+ * \param[in] form Original form
+ * \return New form
+ * This function provides a second method of creating new forms — cloning. 
+ * When cloning, the new form will have the same fields and data as the 
+ * original one.
+ */
 
 leto_utsf *leto_utsf_clone(leto_utsf *form) {
 	leto_utsf *cloned_form = NULL;
@@ -250,6 +266,14 @@ leto_utsf *leto_utsf_clone(leto_utsf *form) {
 	return cloned_form;
 }
 
+/**
+ * \brief The function of filling in the form field
+ * \param[in,out] form The form whose field will be filled in
+ * \param[in] field_name Name of the field to be filled in
+ * \param[in] size Data volume
+ * \param[in] data Data to be entered in the field
+ */
+
 void leto_utsf_fill_field(leto_utsf *form, char *field_name,
 						  positive size, void *data) {
 	leto_t_list *form_content = NULL;
@@ -264,6 +288,32 @@ void leto_utsf_fill_field(leto_utsf *form, char *field_name,
 		form_content = form_content->next;
 	}
 }
+
+/**
+ * \brief Function for filling in multiple fields
+ * \param[in,out] form The form whose fields will be filled in
+ * This function takes a variable number of arguments equal to 1 + 3×n, 
+ * where 1 is form, and n is the number of fields to fill in.
+ *
+ * The general view of the function call is as follows:
+ * \code{.c}
+ * leto_utsf_apply(form,
+ *                 field_name_1, field_size_1, field_data_1,
+ *                 field_name_2, field_size_2, field_data_2
+ *                 ...);
+ * \endcode
+ * Also, specifically for the convenience of programming, two macros have 
+ * been introduced: _p and _v. They can be used to shorten the code as 
+ * follows:
+ * \code{.c}
+ * leto_utsf_apply(form,
+ *                 field_name_1, _v(field_data_1),
+ *                 field_name_2, _v(field_data_2)
+ *                 ...);
+ * \endcode
+ * Read about the use of these macros in the relevant section of the 
+ * documentation
+ */
 
 void leto_utsf_apply(leto_utsf *form, ...) {
 	va_list args_list;
