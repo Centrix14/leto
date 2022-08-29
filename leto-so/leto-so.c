@@ -8,8 +8,7 @@
 #include <stdio.h>
 #include <dlfcn.h>
 
-#include "../leto-type/leto-type.h"
-#include "../leto-error/leto-error.h"
+#include "leto-so.h"
 
 /**
  * \defgroup leto_so [leto-so] Working with dynamic libraries
