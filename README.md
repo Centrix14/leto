@@ -22,6 +22,10 @@ library to your application is trivial.
 2. Add libleto.a to the compilation files (or copy it to the directory
    where the compiler stores the libraries and use the -lleto flag)
 
+## Where can I find code examples?
+You can find code examples in the tests. Just look into the directory of
+the module you need (for example, leto-list) and open the test.c file
+
 # How to compile it?
 
 To compile you will need a compiler with C11 support and the dl
