@@ -1,12 +1,12 @@
 #+title Leto library status file
 #+author Centrix14
 
-* TODO Work plan [4/5]
+* TODO Work plan [5/5]
   - [X] leto-list library
   - [X] leto-test library
   - [X] leto-error library
   - [X] leto-so library
-  - [-] leto-utsf library
+  - [X] leto-utsf library
 
 * TODO [8/8]
   - [X] Write readme
@@ -19,10 +19,10 @@
     and eject functions
   - [X] For leto-utsf: realise construct, apply and clone functionality
 	
-** TODO Add documentation [4/6]
+** TODO Add documentation [5/5]
   - [X] leto-list
   - [X] leto-test
   - [X] leto-ies
   - [X] leto-so
-  - [-] leto-utsf
+  - [X] leto-utsf
 	
