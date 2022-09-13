@@ -5,7 +5,7 @@ COMMON_FLAGS = -std=c11
 DEBUG_FLAGS = -Wall -O0 -g
 
 LIBS = -ldl
-SOURCES = leto-list/leto-list.c leto-so/leto-so.c leto-utsf/leto-utsf.c leto-error/leto-error.c
+SOURCES = leto-list/leto-list.c leto-so/leto-so.c leto-utsf/leto-utsf.c leto-error/leto-error.c leto-test/leto-test.c
 LETO_LIB_NAME = libleto.a
 
 TEST_PATH = test
